@@ -12,5 +12,6 @@ RUN apt update && apt install gnupg2 curl -y && \
 ENV CRON_TIME="0 0 * * *"
 
 ADD run.sh /run.sh
+RUN chmod +x run.sh
 VOLUME ["/mongo-backup"]
 CMD ["/run.sh"]
