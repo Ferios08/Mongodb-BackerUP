@@ -3,9 +3,11 @@
 
 This image runs mongodump to backup data using cronjob to folder `/mongo-backup`
 
+For a prebuilt version of this Docker image, you can use mine: `firasdotcom/mongodb-backerup`
+
 ## Usage:
 
-    docker run -d \
+    docker run -d --name mongodb-backerup \
         --env MONGODB_HOST=mongodb.host \
         --env MONGODB_PORT=27017 \
         --env MONGODB_USER=admin \
