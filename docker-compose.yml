@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    env_file:
+      - ./mongodb_files/mongo.env # configure env vars in this file
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb_files/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongodb_data:/data/db # Persist data even if container shuts down
+
+  mongodbbackup:
+  image: mongodb-backerup
+  build:
+    context: .
+    dockerfile: Dockerfile
+    container_name: mongodb-backerup
+    links:
+      - mongodb
+    environment:
+      #- CRON_TIME=20 3 * * *        # Change to your favorate cron job schedule
+      #- MAX_BACKUPS=10
+      #- INIT_BACKUP=yes
+      #- MONGODB_HOST=mongodb.host 
+      #- MONGODB_PORT=27017 
+      #- MONGODB_USER=admin 
+      #- MONGODB_PASS=password 
+
+    volumes:
+      - /var/mongo-backup:/mongo-backup   # Change to the host folder where you want to store the backups
+
+volumes:
+  mongodb_data:
