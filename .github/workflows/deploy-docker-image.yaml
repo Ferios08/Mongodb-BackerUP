@@ -1,12 +1,14 @@
   
 name: AUTO DEPLOY CONTAINER
-on:
 
 env:
    DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
    USERNAME: ${{ secrets.USERNAME }}
    REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
    IMAGE_TAG: ${{ secrets.IMAGE_TAG }}
+
+   
+on:
   push:
     branches:
       - master
