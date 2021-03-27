@@ -12,7 +12,7 @@ For a prebuilt version of this Docker image, you can use mine: `firasdotcom/mong
         --env MONGODB_PORT=27017 \
         --env MONGODB_USER=admin \
         --env MONGODB_PASS=password \
-        --volume host.folder:/mongo-backup
+        --volume host.folder:/mongo-backup \
         mongodb-backerup
 
 If you link `mongodb-backerup` to a mongodb container(e.g. `mongodb`) with an alias named mongodb, this image will try to auto load the `host`, `port`, `user`, `pass` if possible.
