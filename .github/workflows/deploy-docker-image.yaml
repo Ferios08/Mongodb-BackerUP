@@ -1,3 +1,11 @@
+  
+name: AUTO DEPLOY CONTAINER
+on:
+  push:
+    branches:
+      - main
+
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
