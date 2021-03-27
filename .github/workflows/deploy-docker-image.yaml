@@ -3,7 +3,7 @@ name: AUTO DEPLOY CONTAINER
 on:
   push:
     branches:
-      - main
+      - master
 
 
 jobs:
